@@ -8,13 +8,13 @@ const EmployeeList = () => {
     const list = employee.length ? (employee.map((emp, index) => {
         return <tr key={index}>
             <td>{emp.id}</td>
-            <Link to={`/listemployee/${emp.id}`}><td>{emp.fullname}</td></Link>
+            <td>{emp.fullname}</td>
             <td>{emp.age}</td>
             <td>{emp.position}</td>
+            <td><Link to={`listemployee/${emp.id}`}><button>Edit</button></Link>|<button onClick={() => removeEmployee(emp.id)}>Delete</button></td>
         </tr>
-    })) : (<tr>
-        <td>You dont have a Employee</td>
-    </tr>)
+    })) : ''
+
     return (
         <>
             <table>
@@ -24,6 +24,7 @@ const EmployeeList = () => {
                         <th>FULLNAME</th>
                         <th>AGE</th>
                         <th>POSITION</th>
+                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
